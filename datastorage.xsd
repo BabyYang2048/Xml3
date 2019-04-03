@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="学生信息">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="学生" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="学号" type="xs:string"/>
+							<xs:element name="姓名" type="xs:string"/>
+							<xs:element name="性别">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="男|女"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="年龄">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="0"/>
+										<xs:maxInclusive value="120"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="电话" type="xs:int"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="Unique">
+			<xs:selector xpath="学生"/>
+			<xs:field xpath="学号"/>
+		</xs:unique>
+	</xs:element>
+</xs:schema>

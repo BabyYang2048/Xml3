@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<学生信息 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="a.xsd">
+	<学生 学号="001" 班级="0801">
+		<姓名>张三</姓名>
+		<年龄>19</年龄>
+		<email>zs@tom.com</email>
+	</学生>
+	<学生 学号="002" 班级="0802">
+		<姓名>李四</姓名>
+		<年龄>19</年龄>
+		<email>ls@tom.com</email>
+	</学生>
+</学生信息>

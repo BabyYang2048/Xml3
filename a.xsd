@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="学生信息">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="学生" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="姓名" type="xs:string"/>
+							<xs:element name="年龄" type="xs:int"/>
+							<xs:element name="Email" type="xs:string"/>
+							<xs:element name="年级" type="xs:int"/>
+						</xs:sequence>
+						<xs:attribute name="班级" type="xs:int" use="required"/>
+						<xs:attribute name="学号" type="xs:int" use="required"/>
+						<xs:attribute name="性别" use="optional">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="男|女"/>
+									<!--定义可接受字符的精确序列，只能在男女里面选 -->
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="Unique">
+			<xs:selector xpath="学生"/>
+			<xs:field xpath="@学号"/>
+		</xs:unique>
+	</xs:element>
+</xs:schema>
